@@ -17,6 +17,8 @@ class Colored extends CustomPainter {
       canvas.translate(i % .3, i % .6);
       canvas.save();
       canvas.rotate(pi / i * 25);
+    
+      
 
       final area = Offset(i, i) & Size(i * 10, i * 10);
 
@@ -25,12 +27,12 @@ class Colored extends CustomPainter {
           area,
           Paint()
             ..filterQuality =
-                FilterQuality.high // Change this to lower render time
+                FilterQuality.low // Change this to lower render time
             ..blendMode =
                 BlendMode.screen // Remove this to see the natural drawing shape
             ..color =
                 // Addition of Opacity gives you the fading effect from dark to light
-                Colors.blue.withRed(i.toInt() * 20 % 11).withOpacity(i / 850));
+                Colors.green.withRed(i.toInt() * 20 % 11).withOpacity(i / 850));
 
       // Tail particles effect
 
@@ -46,7 +48,7 @@ class Colored extends CustomPainter {
               Offset(d, e),
               tailWidth,
               Paint()
-                ..color = Colors.red.withOpacity(.4)
+                ..color = Colors.yellow.withOpacity(.4)
                 ..isAntiAlias = true // Change this to lower render time
                 // Particles accelerate as they fall so we change the blur size for movement effect
                 ..imageFilter = ImageFilter.blur(sigmaX: tail, sigmaY: 0)
